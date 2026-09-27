@@ -39,6 +39,8 @@ function niceUnitTime(unitTimeMin: number): { unitTime: number; decimals: number
 export class ConfigurationsTimeline extends Node {
   public constructor(model: ConfigurationsModel) {
     super({
+      // Tick labels and event names scroll past the edges; keep them inside the box.
+      clipArea: Shape.rect(0, 0, W, H),
       tagName: "div",
       focusable: true,
       accessibleName: StringManager.getInstance().getConfigurationsA11yStrings().controls.timelineScrollStringProperty,

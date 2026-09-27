@@ -6,15 +6,17 @@ import { PhetFont } from "scenerystack/scenery-phet";
 import { SolarSystemModelsPanel } from "../../common/SolarSystemModelsPanel.js";
 import { StringManager } from "../../i18n/StringManager.js";
 import SolarSystemModelsColors from "../../SolarSystemModelsColors.js";
-import { DISPLAY_DAYS_PER_YEAR, PANEL_WIDTH } from "../../SolarSystemModelsConstants.js";
+import { DISPLAY_DAYS_PER_YEAR } from "../../SolarSystemModelsConstants.js";
 import type { ConfigurationsModel } from "../model/ConfigurationsModel.js";
 import { eventNameLabel } from "./eventNameLabel.js";
 
 const READOUT_FONT = new PhetFont(12);
+/** The readout sits in the top-left corner of the orbit area, clear of the zodiac ring. */
+const READOUT_MAX_WIDTH = 200;
 const FONT_OPTS = {
   font: READOUT_FONT,
   fill: SolarSystemModelsColors.textColorProperty,
-  maxWidth: PANEL_WIDTH - 24,
+  maxWidth: READOUT_MAX_WIDTH,
 } as const;
 
 export class ConfigurationsTimeReadout extends SolarSystemModelsPanel {
@@ -59,6 +61,8 @@ export class ConfigurationsTimeReadout extends SolarSystemModelsPanel {
       ] as const,
       (cfg) => {
         configText.string = eventNameLabel(cfg);
+        // Hidden when empty so the panel does not reserve a blank row.
+        configText.visible = configText.string !== "";
       },
     );
 
@@ -77,6 +81,7 @@ export class ConfigurationsTimeReadout extends SolarSystemModelsPanel {
         } else {
           countdownText.string = "";
         }
+        countdownText.visible = countdownText.string !== "";
       },
     );
 
@@ -86,6 +91,6 @@ export class ConfigurationsTimeReadout extends SolarSystemModelsPanel {
       align: "left",
     });
 
-    super(content, { minWidth: PANEL_WIDTH });
+    super(content);
   }
 }

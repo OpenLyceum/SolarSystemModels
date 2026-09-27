@@ -54,7 +54,8 @@ export const CONFIGURATIONS_ORBIT_CENTER_X = 285; // px — Sun maps here (x)
 export const CONFIGURATIONS_ORBIT_CENTER_Y = 285; // px — Sun maps here (y)
 export const CONFIGURATIONS_ORBIT_MARGIN = 60; // px — margin around orbit area
 export const CONFIGURATIONS_TIMELINE_WIDTH = 260; // px — AS Timeline.as areaWidth
-export const CONFIGURATIONS_TIMELINE_HEIGHT = 200; // px — AS Timeline.as areaHeight
+// px — AS Timeline.as areaHeight was 200; 180 fits beneath the control panels in the 618 px layout.
+export const CONFIGURATIONS_TIMELINE_HEIGHT = 180;
 export const CONFIGURATIONS_ELONGATION_ARC_RADIUS = 35; // px — elongation indicator arc radius
 
 // ── Configurations parameter bounds (AS slider ranges) ─────────────────────────

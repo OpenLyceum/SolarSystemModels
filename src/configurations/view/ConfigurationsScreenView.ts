@@ -300,9 +300,11 @@ export class ConfigurationsScreenView extends ScreenView {
     displayPanel.top = controlPanel.bottom + PANEL_INTER_GAP;
     this.addChild(displayPanel);
 
+    // Time readout lives in the (empty) top-left corner of the orbit area; the
+    // right column has room only for the controls and the timeline.
     const timeReadout = new ConfigurationsTimeReadout(model);
-    timeReadout.right = this.layoutBounds.maxX - SCREEN_VIEW_MARGIN;
-    timeReadout.top = displayPanel.bottom + PANEL_INTER_GAP;
+    timeReadout.left = SCREEN_VIEW_MARGIN;
+    timeReadout.top = SCREEN_VIEW_MARGIN;
     this.addChild(timeReadout);
 
     // ── Countdown cancel button (AS: clickToCancelMC) ───────────────────────
@@ -321,9 +323,9 @@ export class ConfigurationsScreenView extends ScreenView {
     cancelButton.centerY = CONFIGURATIONS_ORBIT_CENTER_Y;
     this.addChild(cancelButton);
 
-    // Position timeline below time readout
-    timeline.right = this.layoutBounds.maxX - SCREEN_VIEW_MARGIN;
-    timeline.top = timeReadout.bottom + PANEL_INTER_GAP;
+    // Timeline below the display panel, left-aligned with the column so it clears Reset All.
+    timeline.left = controlPanel.left;
+    timeline.top = displayPanel.bottom + PANEL_INTER_GAP;
 
     // ── Zero Counter button (AS: zeroTimelineTime — display-only offset) ───
     const zeroCounterButton = new RectangularPushButton({
@@ -335,8 +337,9 @@ export class ConfigurationsScreenView extends ScreenView {
       listener: () => model.zeroTimelineCounter(),
       accessibleName: s.zeroCounterStringProperty,
     });
-    zeroCounterButton.right = this.layoutBounds.maxX - SCREEN_VIEW_MARGIN;
-    zeroCounterButton.top = timeline.bottom + PANEL_INTER_GAP;
+    // Beneath the time readout it zeroes.
+    zeroCounterButton.left = timeReadout.left;
+    zeroCounterButton.top = timeReadout.bottom + PANEL_INTER_GAP;
     this.addChild(zeroCounterButton);
 
     // ── Reset All button ────────────────────────────────────────────────────
