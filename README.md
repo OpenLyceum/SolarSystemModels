@@ -72,7 +72,7 @@ Keep `name` in kebab-case in `package.json`; it is separate from the SceneryStac
 | [Vite](https://vitejs.dev/) | ^8 | Build tool + dev server |
 | [TypeScript](https://www.typescriptlang.org/) | ^7 | Type-safe JavaScript |
 | [Biome](https://biomejs.dev/) | ^2.5 | Linting + formatting |
-| [Vitest](https://vitest.dev/) | ^4 | Unit tests |
+| [Vitest](https://vitest.dev/) | ^5 | Unit tests |
 | [vite-plugin-pwa](https://vite-pwa-org.netlify.app/) | ^1 | PWA + service worker |
 
 ## License
