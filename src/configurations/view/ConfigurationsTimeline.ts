@@ -1,6 +1,7 @@
 import { Multilink } from "scenerystack/axon";
 import { toFixed } from "scenerystack/dot";
 import { Shape } from "scenerystack/kite";
+import { StringUtils } from "scenerystack/phetcommon";
 import { Node, Path, PressListener, Rectangle, RichDragListener, Text } from "scenerystack/scenery";
 import { PhetFont } from "scenerystack/scenery-phet";
 import { Tandem } from "scenerystack/tandem";
@@ -159,7 +160,7 @@ export class ConfigurationsTimeline extends Node {
         const tickLabel = tickPool[tickIdx];
         if (tickLabel !== undefined) {
           const lbl = decimals <= 0 ? String(Math.round(tickTime)) : toFixed(tickTime, decimals);
-          tickLabel.string = `${lbl} yr`;
+          tickLabel.string = StringUtils.fillIn(s.yearsValuePatternStringProperty.value, { value: lbl });
           tickLabel.right = W - 2;
           tickLabel.centerY = y;
           tickLabel.visible = true;
@@ -290,6 +291,7 @@ export class ConfigurationsTimeline extends Node {
         model.currentCycleNumberProperty,
         model.lockedOnEventProperty,
         model.lockedEventIndexProperty,
+        s.yearsValuePatternStringProperty,
       ] as const,
       update,
     );

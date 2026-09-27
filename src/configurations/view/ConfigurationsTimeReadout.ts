@@ -34,16 +34,22 @@ export class ConfigurationsTimeReadout extends SolarSystemModelsPanel {
         model.timelineTimeOffsetProperty,
         model.synodicPeriodProperty,
         s.synodicPeriodStringProperty,
+        s.elapsedTimePatternStringProperty,
+        s.yearsValuePatternStringProperty,
       ] as const,
-      (time, offset, synodic, synodicLabel) => {
+      (time, offset, synodic, synodicLabel, elapsedPattern, yearsPattern) => {
         const displayTime = time + offset;
         const absTime = Math.abs(displayTime);
         const totalDays = absTime * DISPLAY_DAYS_PER_YEAR;
         const yrs = Math.floor(absTime);
         const days = totalDays - yrs * DISPLAY_DAYS_PER_YEAR;
         const sign = displayTime < 0 ? "-" : "";
-        timeText.string = `${sign}${toFixed(absTime, 3)} yr (${sign}${yrs} yr, ${sign}${toFixed(days, 1)} d)`;
-        synodicText.string = `${synodicLabel} ${toFixed(synodic, 3)} yr`;
+        timeText.string = StringUtils.fillIn(elapsedPattern, {
+          total: `${sign}${toFixed(absTime, 3)}`,
+          years: `${sign}${yrs}`,
+          days: `${sign}${toFixed(days, 1)}`,
+        });
+        synodicText.string = `${synodicLabel} ${StringUtils.fillIn(yearsPattern, { value: toFixed(synodic, 3) })}`;
       },
     );
 

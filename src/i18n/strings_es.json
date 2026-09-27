@@ -91,7 +91,9 @@
     "inferiorConjunction": "conjunción inferior",
     "greatestElongationWestern": "máxima elongación (oeste)",
     "superiorConjunction": "conjunción superior",
-    "greatestElongationEastern": "máxima elongación (este)"
+    "greatestElongationEastern": "máxima elongación (este)",
+    "elapsedTimePattern": "{{total}} años ({{years}} años, {{days}} d)",
+    "yearsValuePattern": "{{value}} años"
   },
   "a11y": {
     "ptolemaic": {
