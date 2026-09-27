@@ -37,6 +37,9 @@ const ZODIAC_SIGNS = ["♈", "♉", "♊", "♋", "♌", "♍", "♎", "♏", "�
 
 export type PtolemaicScreenViewOptions = ScreenViewOptions;
 
+/** Horizontal gap between the key panel and its neighbours (zodiac strip, Reset All). */
+const KEY_PANEL_GAP = 8;
+
 export class PtolemaicScreenView extends ScreenView {
   private readonly pathTrail: PtolemaicPathTrail;
   private readonly model: PtolemaicModel;
@@ -344,9 +347,6 @@ export class PtolemaicScreenView extends ScreenView {
     this.addChild(timeReadout);
 
     const keyPanel = new PtolemaicKeyPanel();
-    keyPanel.right = this.layoutBounds.maxX - SCREEN_VIEW_MARGIN;
-    keyPanel.top = timeReadout.bottom + PANEL_INTER_GAP;
-    this.addChild(keyPanel);
 
     // ── Reset All button ───────────────────────────────────────────────────
     const resetAllButton = new ResetAllButton({
@@ -359,6 +359,13 @@ export class PtolemaicScreenView extends ScreenView {
       bottom: this.layoutBounds.maxY - SCREEN_VIEW_MARGIN,
     });
     this.addChild(resetAllButton);
+
+    // The key sits between the zodiac strip and Reset All (it used to run under
+    // the button); maxWidth scales it down to fit that gap.
+    keyPanel.maxWidth = resetAllButton.left - zodiacStrip.right - 2 * KEY_PANEL_GAP;
+    keyPanel.right = resetAllButton.left - KEY_PANEL_GAP;
+    keyPanel.top = timeReadout.bottom + PANEL_INTER_GAP;
+    this.addChild(keyPanel);
 
     // ── pdomOrder (Tab order) ──────────────────────────────────────────────
     this.addChild(
