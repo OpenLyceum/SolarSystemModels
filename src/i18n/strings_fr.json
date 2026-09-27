@@ -36,6 +36,8 @@
     "keyEpicycle": "Épicycle",
     "keyEquant": "Point équant",
     "keyPlanet": "Planète",
+    "sunAbbreviation": "S",
+    "planetAbbreviation": "P",
     "keyDeferentCenter": "Centre du déférent",
     "keyEarthInfo": "La Terre. Dans le modèle de Ptolémée, la Terre est stationnaire au centre.",
     "keyPlanetInfo": "La planète, qui dans ce modèle orbite autour de la Terre grâce à une construction de cercle sur cercle. Le grand cercle est le déférent et le petit est l'épicycle.",

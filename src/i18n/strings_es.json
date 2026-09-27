@@ -36,6 +36,8 @@
     "keyEpicycle": "Epiciclo",
     "keyEquant": "Punto ecuante",
     "keyPlanet": "Planeta",
+    "sunAbbreviation": "S",
+    "planetAbbreviation": "P",
     "keyDeferentCenter": "Centro del deferente",
     "keyEarthInfo": "La Tierra. En el modelo de Ptolomeo, la Tierra es estacionaria en el centro.",
     "keyPlanetInfo": "El planeta, que en este modelo orbita la Tierra mediante una construcción de círculo sobre círculo. El círculo grande es el deferente y el pequeño es el epiciclo.",

@@ -53,6 +53,8 @@ export class PtolemaicZodiacStrip extends Node {
   public constructor(model: PtolemaicModel) {
     super();
 
+    const ptolemaicStrings = StringManager.getInstance().getPtolemaicStrings();
+
     // Flash strip order: Pisces → Aries (rightward), matching lonToX negation.
     const z = StringManager.getInstance().getZodiacStrings();
     const signStringProperties = [
@@ -86,7 +88,7 @@ export class PtolemaicZodiacStrip extends Node {
       fill: SolarSystemModelsColors.sunColorProperty,
       centerY: H / 2 + 12,
     });
-    const sunLabel = new Text("S", {
+    const sunLabel = new Text(ptolemaicStrings.sunAbbreviationStringProperty, {
       font: new PhetFont({ size: 9, weight: "bold" }),
       fill: SolarSystemModelsColors.sunColorProperty,
       centerY: H / 2 + 12,
@@ -99,7 +101,7 @@ export class PtolemaicZodiacStrip extends Node {
       fill: SolarSystemModelsColors.planetColorProperty,
       centerY: H / 2 - 12,
     });
-    const planetLabel = new Text("P", {
+    const planetLabel = new Text(ptolemaicStrings.planetAbbreviationStringProperty, {
       font: new PhetFont({ size: 9, weight: "bold" }),
       fill: SolarSystemModelsColors.planetColorProperty,
       centerY: H / 2 - 12,

@@ -36,6 +36,8 @@
     "keyEpicycle": "Epicycle",
     "keyEquant": "Equant Point",
     "keyPlanet": "Planet",
+    "sunAbbreviation": "S",
+    "planetAbbreviation": "P",
     "keyDeferentCenter": "Deferent Center",
     "keyEarthInfo": "Earth. In Ptolemy's model Earth is stationary at the center.",
     "keyPlanetInfo": "The planet, which in this model orbits Earth using a circle-on-circle construction. The large circle is the deferent and the small one is the epicycle.",
