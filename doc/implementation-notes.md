@@ -111,6 +111,6 @@ Screen-lifetime architecture.
 
 ## Multi-screen
 
-Independent state — see [multi-screen.md](./multi-screen.md).
+Independent state — see [SceneryStackTemplate `doc/multi-screen.md`](https://github.com/OpenLyceum/SceneryStackTemplate/blob/main/doc/multi-screen.md).
 
 Flash decompile: `ptolemaic023-C`, `configurationsSimulator044-C` via `npm run decompile`.
