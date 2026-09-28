@@ -10,15 +10,15 @@
  *    `public: true`. Add `isValidValue` to bound numeric ranges.
  * 2. If it should also be user-editable at runtime, surface it as a preference
  *    in SolarSystemModelsPreferencesModel (initialize that Property from this query parameter).
+ *
+ * Usage: append e.g. `?name=value` to the sim URL (none are defined yet).
  */
 
 import { logGlobal } from "scenerystack/phet-core";
 import { QueryStringMachine } from "scenerystack/query-string-machine";
 import SolarSystemModelsNamespace from "../SolarSystemModelsNamespace.js";
 
-const solarSystemModelsQueryParameters = QueryStringMachine.getAll({
-  // No sim-specific query parameters yet. Add public params here when needed.
-});
+const solarSystemModelsQueryParameters = QueryStringMachine.getAll({});
 
 SolarSystemModelsNamespace.register("solarSystemModelsQueryParameters", solarSystemModelsQueryParameters);
 
