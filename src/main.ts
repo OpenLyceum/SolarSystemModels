@@ -35,14 +35,15 @@ onReadyToLaunch(() => {
   // Simulation-specific preferences; initial values come from solarSystemModelsQueryParameters.
   const simPreferences = new SolarSystemModelsPreferencesModel(Tandem.ROOT.createTandem("preferences"));
 
-  // Screen name Properties update automatically when the locale changes.
   const screens = [
     new PtolemaicScreen({
+      // The screen name Property updates automatically when the locale changes
       name: screenNames.ptolemaicStringProperty,
       tandem: Tandem.ROOT.createTandem("ptolemaicScreen"),
       backgroundColorProperty: SolarSystemModelsColors.backgroundColorProperty,
     }),
     new ConfigurationsScreen({
+      // The screen name Property updates automatically when the locale changes
       name: screenNames.configurationsStringProperty,
       tandem: Tandem.ROOT.createTandem("configurationsScreen"),
       backgroundColorProperty: SolarSystemModelsColors.backgroundColorProperty,
@@ -70,6 +71,7 @@ onReadyToLaunch(() => {
       },
     }),
 
+    // Optional: fill in credits shown in Help → About
     credits: {
       leadDesign: "NAAP / OpenLyceum",
       softwareDevelopment: "OpenLyceum",
