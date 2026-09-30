@@ -65,6 +65,10 @@ export class StringManager {
     return stringProperties.zodiac;
   }
 
+  public getKeyboardHelpStrings() {
+    return stringProperties.keyboardHelp;
+  }
+
   public getPreferences() {
     return stringProperties.preferences;
   }

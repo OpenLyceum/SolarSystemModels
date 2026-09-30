@@ -171,6 +171,13 @@
     "aquarius": "Aquarius",
     "pisces": "Pisces"
   },
+  "keyboardHelp": {
+    "zodiacHeading": "Zodiac band",
+    "pan": "Pan the zodiac band",
+    "panDescription": "Pan the zodiac band left or right.",
+    "panSlower": "Pan in smaller steps",
+    "panSlowerDescription": "Hold Shift to pan the zodiac band in smaller steps."
+  },
   "preferences": {
     "title": "Simulation"
   }

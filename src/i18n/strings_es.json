@@ -171,6 +171,13 @@
     "aquarius": "Acuario",
     "pisces": "Piscis"
   },
+  "keyboardHelp": {
+    "zodiacHeading": "Banda del zodíaco",
+    "pan": "Desplazar la banda del zodíaco",
+    "panDescription": "Desplaza la banda del zodíaco a la izquierda o a la derecha.",
+    "panSlower": "Desplazar en pasos más pequeños",
+    "panSlowerDescription": "Mantén Mayús para desplazar la banda del zodíaco en pasos más pequeños."
+  },
   "preferences": {
     "title": "Simulación"
   }

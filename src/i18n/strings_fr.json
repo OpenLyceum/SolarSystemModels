@@ -171,6 +171,13 @@
     "aquarius": "Verseau",
     "pisces": "Poissons"
   },
+  "keyboardHelp": {
+    "zodiacHeading": "Bande du zodiaque",
+    "pan": "Faire défiler la bande du zodiaque",
+    "panDescription": "Faites défiler la bande du zodiaque vers la gauche ou la droite.",
+    "panSlower": "Faire défiler par plus petits pas",
+    "panSlowerDescription": "Maintenez Maj pour faire défiler la bande du zodiaque par plus petits pas."
+  },
   "preferences": {
     "title": "Simulation"
   }
