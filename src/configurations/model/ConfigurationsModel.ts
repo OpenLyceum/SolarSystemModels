@@ -669,7 +669,7 @@ export class ConfigurationsModel implements TModel {
     }
   }
 
-  public step(dt: number): void {
+  public step(dt: number, forceStep = false): void {
     if (this.slewActive) {
       this.advanceSlew(dt);
       return;
@@ -678,7 +678,7 @@ export class ConfigurationsModel implements TModel {
       this.advanceCountdown(dt);
       return;
     }
-    if (!this.timer.isPlayingProperty.value) {
+    if (!(this.timer.isPlayingProperty.value || forceStep)) {
       return;
     }
 
@@ -688,7 +688,7 @@ export class ConfigurationsModel implements TModel {
     const dtYears = (dt * this.timer.animationRateProperty.value * minPeriod) / TWO_PI;
     const newTime = this.timeProperty.value + dtYears;
 
-    if (newTime > this.nextEventTime && this.eventActionProperty.value !== EventAction.RUN) {
+    if (newTime >= this.nextEventTime && this.eventActionProperty.value !== EventAction.RUN) {
       this.setTimeByCycleAndEventNumbers(this.nextCycleNumber, this.nextEventNumber);
       this.timer.isPlayingProperty.value = false;
       if (this.eventActionProperty.value === EventAction.PAUSE) {

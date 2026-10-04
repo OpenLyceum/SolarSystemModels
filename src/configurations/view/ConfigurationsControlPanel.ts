@@ -191,7 +191,7 @@ export class ConfigurationsControlPanel extends SolarSystemModelsPanel {
           ...FLAT_PLAY_PAUSE_STEP_BUTTON_OPTIONS.stepForwardButtonOptions,
           listener: () => {
             if (!model.timer.isPlayingProperty.value) {
-              model.step(1 / 60);
+              model.step(1 / 60, true);
             }
           },
         },

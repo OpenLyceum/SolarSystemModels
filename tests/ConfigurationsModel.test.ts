@@ -237,3 +237,21 @@ describe("ConfigurationsModel", () => {
     expect(model.lockedOnEventProperty.value).toBe(false);
   });
 });
+
+it("stops on an event reached exactly at the frame boundary", () => {
+  const model = new ConfigurationsModel();
+  const eventTime = model.eventTimesListProperty.value[1];
+  model.setTime(eventTime - 0.01);
+  model.eventActionProperty.value = EventAction.STOP;
+  model.timer.isPlayingProperty.value = true;
+  model.step(0.01 * 2 * Math.PI);
+  expect(model.timer.isPlayingProperty.value).toBe(false);
+  expect(model.lockedEventIndexProperty.value).toBe(1);
+});
+
+it("advances one frame while paused when requested by the step button", () => {
+  const model = new ConfigurationsModel();
+  model.step(1 / 60, true);
+  expect(model.timeProperty.value).toBeGreaterThan(0);
+  expect(model.timer.isPlayingProperty.value).toBe(false);
+});
