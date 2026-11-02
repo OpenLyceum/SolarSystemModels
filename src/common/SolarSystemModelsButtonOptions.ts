@@ -17,26 +17,30 @@
  * Flat push buttons use the light control-surface pattern (RotatingSky): white
  * chrome with dark labels via {@link LIGHT_SURFACE_TEXT_FILL}, not
  * {@link SolarSystemModelsColors.textColorProperty}.
+ *
+ * Template-owned toolkit: each sim uses only some of these, so every export is tagged
+ * `@public` to tell dead-code checkers (knip) that an unused one is not dead code.
  */
 
 import type { PlayPauseStepButtonGroupOptions, TimeControlNodeOptions } from "scenerystack/scenery-phet";
 import { ButtonNode, type ComboBoxOptions } from "scenerystack/sun";
 import SolarSystemModelsColors from "../SolarSystemModelsColors.js";
 
+/** @public */
 export const FLAT_BUTTON_APPEARANCE_OPTIONS = {
   buttonAppearanceStrategy: ButtonNode.FlatAppearanceStrategy,
 } as const;
 
-/** Text on flat push buttons (always on a light control surface). */
+/** Text on flat push buttons (always on a light control surface). @public */
 export const LIGHT_SURFACE_TEXT_FILL = SolarSystemModelsColors.controlSurfaceTextColorProperty;
 
-/** Options for RectangularPushButton and NumberControl arrow buttons. */
-export const FLAT_RECTANGULAR_BUTTON_OPTIONS = FLAT_BUTTON_APPEARANCE_OPTIONS;
+/** Options for RectangularPushButton and NumberControl arrow buttons. @public */
+export const FLAT_RECTANGULAR_BUTTON_OPTIONS = { ...FLAT_BUTTON_APPEARANCE_OPTIONS } as const;
 
-/** Options for ResetAllButton (extends RoundPushButton). */
-export const FLAT_RESET_ALL_BUTTON_OPTIONS = FLAT_BUTTON_APPEARANCE_OPTIONS;
+/** Options for ResetAllButton (extends RoundPushButton). @public */
+export const FLAT_RESET_ALL_BUTTON_OPTIONS = { ...FLAT_BUTTON_APPEARANCE_OPTIONS } as const;
 
-/** Nested options for TimeControlNode's play / pause / step round buttons. */
+/** Nested options for TimeControlNode's play / pause / step round buttons. @public */
 export const FLAT_PLAY_PAUSE_STEP_BUTTON_OPTIONS = {
   playPauseButtonOptions: FLAT_BUTTON_APPEARANCE_OPTIONS,
   stepForwardButtonOptions: FLAT_BUTTON_APPEARANCE_OPTIONS,
@@ -48,6 +52,8 @@ export const FLAT_PLAY_PAUSE_STEP_BUTTON_OPTIONS = {
  * dark background/border colors with the ComboBox so its near-white item text
  * (SolarSystemModelsColors.textColorProperty) stays readable in both the default
  * (dark) and projector (light) profiles.
+ *
+ * @public
  */
 export const SOLAR_SYSTEM_MODELS_COMBO_BOX_OPTIONS = {
   buttonFill: SolarSystemModelsColors.panelBackgroundColorProperty,
@@ -60,6 +66,8 @@ export const SOLAR_SYSTEM_MODELS_COMBO_BOX_OPTIONS = {
 /**
  * Speed radio labels for TimeControlNode. SceneryStack Text defaults to black, which
  * is low-contrast on the sim's dark Default-mode panels.
+ *
+ * @public
  */
 export const TIME_CONTROL_SPEED_RADIO_OPTIONS = {
   speedRadioButtonGroupOptions: {
