@@ -2,8 +2,7 @@
  * SolarSystemModelsPreferencesNode.ts
  *
  * Custom preferences UI shown in Preferences → Simulation. Controls are bound
- * to SolarSystemModelsPreferencesModel Properties (whose initial values come from
- * solarSystemModelsQueryParameters).
+ * to SolarSystemModelsPreferencesModel Properties.
  */
 
 import { Text, VBox } from "scenerystack/scenery";

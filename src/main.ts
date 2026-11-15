@@ -32,7 +32,7 @@ onReadyToLaunch(() => {
   const stringManager = StringManager.getInstance();
   const screenNames = stringManager.getScreenNames();
 
-  // Simulation-specific preferences; initial values come from solarSystemModelsQueryParameters.
+  // Simulation-specific preferences (empty until query-parameter-backed prefs are added).
   const simPreferences = new SolarSystemModelsPreferencesModel(Tandem.ROOT.createTandem("preferences"));
 
   const screens = [

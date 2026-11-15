@@ -93,5 +93,3 @@ export function createCompactSliderRow(
     maxWidth: PANEL_WIDTH - 20,
   });
 }
-
-export { LABEL_FONT, THUMB_SIZE };

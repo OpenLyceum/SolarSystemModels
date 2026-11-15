@@ -2,10 +2,8 @@
  * SolarSystemModelsPreferencesModel.ts
  *
  * Model for the simulation-specific preferences shown in Preferences →
- * Simulation. Each preference Property takes its initial value from the
- * corresponding query parameter in solarSystemModelsQueryParameters.
- *
- * Currently empty — add Properties here when the sim gains real preferences.
+ * Simulation. Currently empty — add Properties here when the sim gains real
+ * preferences (initialize each from a QueryStringMachine parameter when needed).
  * The constructor keeps an optional tandem so main.ts can pass one without
  * changing call sites when preferences are added later.
  */

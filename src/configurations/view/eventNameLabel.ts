@@ -3,7 +3,7 @@ import { StringManager } from "../../i18n/StringManager.js";
 import type { EventNameKey } from "../model/EventNameKey.js";
 
 /** Resolve a synodic event name key to its localized string property. */
-export function eventNameStringProperty(key: EventNameKey): ReadOnlyProperty<string> {
+function eventNameStringProperty(key: EventNameKey): ReadOnlyProperty<string> {
   const s = StringManager.getInstance().getConfigurationsStrings();
   switch (key) {
     case "opposition":

@@ -3,11 +3,6 @@ import { Node, Rectangle, Text } from "scenerystack/scenery";
 import { PhetFont } from "scenerystack/scenery-phet";
 import SolarSystemModelsColors from "../SolarSystemModelsColors.js";
 
-/** Wrap x into [0, width) — shared by both zodiac strips' longitude→x mapping. */
-export function wrapToWidth(x: number, width: number): number {
-  return ((x % width) + width) % width;
-}
-
 /**
  * Shared "view from Earth" zodiac strip chrome: background band, 12 evenly
  * spaced sign labels, and dividers between them. Screen-specific overlays
