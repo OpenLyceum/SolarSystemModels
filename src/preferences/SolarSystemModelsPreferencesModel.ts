@@ -10,6 +10,7 @@
 
 import type { Tandem } from "scenerystack/tandem";
 import SolarSystemModelsNamespace from "../SolarSystemModelsNamespace.js";
+import "./solarSystemModelsQueryParameters.js";
 
 export class SolarSystemModelsPreferencesModel {
   // biome-ignore lint/complexity/noUselessConstructor: tandem reserved for future preference Properties
