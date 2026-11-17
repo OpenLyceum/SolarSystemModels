@@ -46,10 +46,6 @@ Two **independent** screen models — no shared root state.
 Follows the shared [OpenLyceum accessibility convention](https://github.com/OpenLyceum/Baton/blob/main/ACCESSIBILITY.md).
 Each screen registers `*ScreenSummaryContent` and explicit `pdomOrder` on its `*ScreenView`. A11y strings live under `a11y.ptolemaic` and `a11y.configurations` in each locale JSON, via `StringManager.getPtolemaicA11yStrings()` / `getConfigurationsA11yStrings()`. Keep `currentDetailsContent` live over model state; every interactive node needs an `accessibleName`.
 
-## Compliance carve-outs
-
-- `.github/workflows/ci.yml`: `unused-mode: advisory` until both Knip default and production baselines are reviewed and cleared ([Baton/doc/knip.md](https://github.com/OpenLyceum/Baton/blob/main/doc/knip.md)).
-
 ## Testing
 
 | Path | Purpose |
