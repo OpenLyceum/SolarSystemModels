@@ -153,7 +153,8 @@
         "targetShiftDrag": "Target planet — Shift-drag to set epoch angle",
         "timelineScroll": "Timeline — drag to scrub time",
         "timelineEvent": "Timeline event — activate to slew to this event",
-        "cancelCountdown": "Cancel pause countdown"
+        "cancelCountdown": "Cancel pause countdown",
+        "zodiacBand": "Zodiac band — drag to pan"
       }
     }
   },
@@ -176,7 +177,22 @@
     "pan": "Pan the zodiac band",
     "panDescription": "Pan the zodiac band left or right.",
     "panSlower": "Pan in smaller steps",
-    "panSlowerDescription": "Hold Shift to pan the zodiac band in smaller steps."
+    "panSlowerDescription": "Hold Shift to pan the zodiac band in smaller steps.",
+    "planetsHeading": "Planets",
+    "movePlanet": "Move planet along its orbit",
+    "movePlanetDescription": "Move the focused planet along its orbit with Left or Right arrow keys, or A or D. This changes the time.",
+    "movePlanetSlower": "Move in smaller steps",
+    "movePlanetSlowerDescription": "Hold Shift to move the planet in smaller steps.",
+    "timelineHeading": "Timeline",
+    "scrubTimeline": "Scrub through time",
+    "scrubTimelineDescription": "Scrub the timeline forward or back in time with Up or Down arrow keys, or W or S.",
+    "scrubTimelineSlower": "Scrub in smaller steps",
+    "scrubTimelineSlowerDescription": "Hold Shift to scrub the timeline in smaller steps.",
+    "sunHeading": "Sun",
+    "moveSun": "Move the Sun around Earth",
+    "moveSunDescription": "Move the Sun around Earth with Left or Right arrow keys, or A or D.",
+    "moveSunSlower": "Move in smaller steps",
+    "moveSunSlowerDescription": "Hold Shift to move the Sun in smaller steps."
   },
   "preferences": {
     "title": "Simulation"

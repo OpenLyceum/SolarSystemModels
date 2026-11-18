@@ -42,9 +42,6 @@ export class ConfigurationsTimeline extends Node {
     super({
       // Tick labels and event names scroll past the edges; keep them inside the box.
       clipArea: Shape.rect(0, 0, W, H),
-      tagName: "div",
-      focusable: true,
-      accessibleName: StringManager.getInstance().getConfigurationsA11yStrings().controls.timelineScrollStringProperty,
     });
 
     const s = StringManager.getInstance().getConfigurationsStrings();
@@ -343,7 +340,10 @@ export class ConfigurationsTimeline extends Node {
         },
       }),
     );
-    bg.focusable = true;
+    // The keyboard half of the drag lives on bg, so bg (not this container) is the
+    // named focus stop — a listener on a descendant of the focused node never fires.
     bg.tagName = "div";
+    bg.focusable = true;
+    bg.accessibleName = a11y.controls.timelineScrollStringProperty;
   }
 }

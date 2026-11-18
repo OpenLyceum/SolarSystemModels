@@ -153,7 +153,8 @@
         "targetShiftDrag": "Planète cible — Maj+glisser pour régler l'angle d'époque",
         "timelineScroll": "Chronologie — glisser pour faire défiler le temps",
         "timelineEvent": "Événement de chronologie — activer pour aller à cet événement",
-        "cancelCountdown": "Annuler le compte à rebours de pause"
+        "cancelCountdown": "Annuler le compte à rebours de pause",
+        "zodiacBand": "Bande du zodiaque — glisser pour faire défiler"
       }
     }
   },
@@ -176,7 +177,22 @@
     "pan": "Faire défiler la bande du zodiaque",
     "panDescription": "Faites défiler la bande du zodiaque vers la gauche ou la droite.",
     "panSlower": "Faire défiler par plus petits pas",
-    "panSlowerDescription": "Maintenez Maj pour faire défiler la bande du zodiaque par plus petits pas."
+    "panSlowerDescription": "Maintenez Maj pour faire défiler la bande du zodiaque par plus petits pas.",
+    "planetsHeading": "Planètes",
+    "movePlanet": "Déplacer la planète sur son orbite",
+    "movePlanetDescription": "Déplacez la planète active sur son orbite avec les flèches gauche ou droite, ou A ou D. Cela change le temps.",
+    "movePlanetSlower": "Déplacer par plus petits pas",
+    "movePlanetSlowerDescription": "Maintenez Maj pour déplacer la planète par plus petits pas.",
+    "timelineHeading": "Chronologie",
+    "scrubTimeline": "Faire défiler le temps",
+    "scrubTimelineDescription": "Faites défiler la chronologie en avant ou en arrière avec les flèches haut ou bas, ou W ou S.",
+    "scrubTimelineSlower": "Faire défiler par plus petits pas",
+    "scrubTimelineSlowerDescription": "Maintenez Maj pour faire défiler la chronologie par plus petits pas.",
+    "sunHeading": "Soleil",
+    "moveSun": "Déplacer le Soleil autour de la Terre",
+    "moveSunDescription": "Déplacez le Soleil autour de la Terre avec les flèches gauche ou droite, ou A ou D.",
+    "moveSunSlower": "Déplacer par plus petits pas",
+    "moveSunSlowerDescription": "Maintenez Maj pour déplacer le Soleil par plus petits pas."
   },
   "preferences": {
     "title": "Simulation"

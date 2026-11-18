@@ -153,7 +153,8 @@
         "targetShiftDrag": "Planeta objetivo — Mayús+arrastrar para fijar el ángulo de época",
         "timelineScroll": "Línea de tiempo — arrastrar para desplazar el tiempo",
         "timelineEvent": "Evento de la línea de tiempo — activar para ir a este evento",
-        "cancelCountdown": "Cancelar la cuenta regresiva de pausa"
+        "cancelCountdown": "Cancelar la cuenta regresiva de pausa",
+        "zodiacBand": "Banda del zodíaco — arrastrar para desplazar"
       }
     }
   },
@@ -176,7 +177,22 @@
     "pan": "Desplazar la banda del zodíaco",
     "panDescription": "Desplaza la banda del zodíaco a la izquierda o a la derecha.",
     "panSlower": "Desplazar en pasos más pequeños",
-    "panSlowerDescription": "Mantén Mayús para desplazar la banda del zodíaco en pasos más pequeños."
+    "panSlowerDescription": "Mantén Mayús para desplazar la banda del zodíaco en pasos más pequeños.",
+    "planetsHeading": "Planetas",
+    "movePlanet": "Mover el planeta en su órbita",
+    "movePlanetDescription": "Mueve el planeta enfocado en su órbita con las flechas izquierda o derecha, o A o D. Esto cambia el tiempo.",
+    "movePlanetSlower": "Mover en pasos más pequeños",
+    "movePlanetSlowerDescription": "Mantén Mayús para mover el planeta en pasos más pequeños.",
+    "timelineHeading": "Línea de tiempo",
+    "scrubTimeline": "Desplazarse en el tiempo",
+    "scrubTimelineDescription": "Desplaza la línea de tiempo hacia adelante o atrás con las flechas arriba o abajo, o W o S.",
+    "scrubTimelineSlower": "Desplazarse en pasos más pequeños",
+    "scrubTimelineSlowerDescription": "Mantén Mayús para desplazar la línea de tiempo en pasos más pequeños.",
+    "sunHeading": "Sol",
+    "moveSun": "Mover el Sol alrededor de la Tierra",
+    "moveSunDescription": "Mueve el Sol alrededor de la Tierra con las flechas izquierda o derecha, o A o D.",
+    "moveSunSlower": "Mover en pasos más pequeños",
+    "moveSunSlowerDescription": "Mantén Mayús para mover el Sol en pasos más pequeños."
   },
   "preferences": {
     "title": "Simulación"

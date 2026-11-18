@@ -15,7 +15,7 @@
 import { Multilink, NumberProperty } from "scenerystack/axon";
 import { toFixed } from "scenerystack/dot";
 import { Shape } from "scenerystack/kite";
-import { Circle, Node, Path, Rectangle, RichDragListener, Text } from "scenerystack/scenery";
+import { Circle, InteractiveHighlighting, Node, Path, Rectangle, RichDragListener, Text } from "scenerystack/scenery";
 import { PhetFont } from "scenerystack/scenery-phet";
 import { Tandem } from "scenerystack/tandem";
 import { ECLIPTIC_CONSTELLATIONS } from "../../common/ZodiacConstellationsData.js";
@@ -34,6 +34,9 @@ const ELONGATION_Y = H + 14;
 const TICK_FONT = new PhetFont({ size: 10, weight: "bold" });
 const DIRECTION_FONT = new PhetFont({ size: 11, weight: "bold" });
 
+/** The band is the keyboard drag target, so it shows a hover highlight like other draggables. */
+class ZodiacBand extends InteractiveHighlighting(Rectangle) {}
+
 function mod(x: number, m: number): number {
   return ((x % m) + m) % m;
 }
@@ -48,16 +51,21 @@ export class ConfigurationsZodiacStrip extends Node {
     super();
 
     const s = StringManager.getInstance().getConfigurationsStrings();
+    const a11y = StringManager.getInstance().getConfigurationsA11yStrings();
 
     // Panning offset (px) — drag the strip horizontally (Flash setOffset).
     const offsetProperty = new NumberProperty(0);
 
     // ── Band background (also the drag surface) ──────────────────────────
-    const band = new Rectangle(0, 0, W, H, {
+    // Focusable so the RichDragListener's left/right keyboard pan is reachable.
+    const band = new ZodiacBand(0, 0, W, H, {
       fill: SolarSystemModelsColors.zodiacBandColorProperty,
       stroke: SolarSystemModelsColors.zodiacBorderColorProperty,
       lineWidth: 1,
       cursor: "ew-resize",
+      tagName: "div",
+      focusable: true,
+      accessibleName: a11y.controls.zodiacBandStringProperty,
     });
     this.addChild(band);
 

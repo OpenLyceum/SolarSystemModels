@@ -46,6 +46,8 @@ Two **independent** screen models — no shared root state.
 Follows the shared [OpenLyceum accessibility convention](https://github.com/OpenLyceum/Baton/blob/main/ACCESSIBILITY.md).
 Each screen registers `*ScreenSummaryContent` and explicit `pdomOrder` on its `*ScreenView`. A11y strings live under `a11y.ptolemaic` and `a11y.configurations` in each locale JSON, via `StringManager.getPtolemaicA11yStrings()` / `getConfigurationsA11yStrings()`. Keep `currentDetailsContent` live over model state; every interactive node needs an `accessibleName`.
 
+Keyboard drags (all single-axis `RichDragListener`s, Shift = smaller step): Ptolemaic Sun (left/right); Configurations planets (left/right, sets time), timeline background (up/down — the `bg` Rectangle is the named focus stop, since the keyboard half lives there), and zodiac band (left/right pan). Each screen's `*KeyboardHelpContent` documents them with the `leftRight`/`upDown` key strings, plus the TimeControlNode's Alt+K.
+
 ## Testing
 
 | Path | Purpose |

@@ -365,6 +365,7 @@ export class ConfigurationsScreenView extends ScreenView {
           zeroCounterButton,
           observerNode,
           targetNode,
+          zodiacStrip,
           cancelButton,
           resetAllButton,
         ],
