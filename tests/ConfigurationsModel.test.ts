@@ -255,3 +255,11 @@ it("advances one frame while paused when requested by the step button", () => {
   expect(model.timeProperty.value).toBeGreaterThan(0);
   expect(model.timer.isPlayingProperty.value).toBe(false);
 });
+
+it("animationRateProperty defaults to 1 and resets", () => {
+  const model = new ConfigurationsModel();
+  expect(model.animationRateProperty.value).toBe(1);
+  model.animationRateProperty.value = 2.5;
+  model.reset();
+  expect(model.animationRateProperty.value).toBe(1);
+});

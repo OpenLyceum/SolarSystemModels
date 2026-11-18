@@ -22,7 +22,7 @@ src/configurations/
   view/ConfigurationsScreenView.ts, ConfigurationsOrbitNode.ts, ConfigurationsZodiacStrip.ts, …
 
 src/common/
-  TimeModel.ts                    play/pause; Configurations also uses animationRateProperty
+  TimeModel.ts                    play/pause (template-owned)
   SolarSystemModelsPanel.ts, SolarSystemModelsButtonOptions.ts, SolarSystemModelsControlOptions.ts
   ZodiacConstellationsData.ts, ZodiacStripBackground.ts
 
@@ -64,7 +64,7 @@ Circular Kepler orbits; **planet 1 = observer**, **planet 2 = target**.
 | Time | `timeProperty` (years), `nextEventTimeProperty`, `currentCycleNumberProperty` |
 | Schedule | `synodicPeriodProperty`, `cycleOffsetProperty`, `eventTimesListProperty`, `eventNamesProperty` |
 | Playback | `eventActionProperty` (`RUN` \| `PAUSE` \| `STOP`); private `slewActive`, `countdownElapsed` |
-| Animation | `timer.animationRateProperty` (0–6×); `timer.isPlayingProperty` |
+| Animation | `animationRateProperty` (0–6×); `timer.isPlayingProperty` |
 
 **Schedule:** `calculateSystemProperties()` imperatively writes synodic schedule Properties (not a single
 `DerivedProperty` bundle). Called from constructor, `setSemimajorAxis`, epoch changes, `reset`.
@@ -85,7 +85,7 @@ names are inverted relative to usage — describe behavior by *a*₁ vs *a*₂, 
 ## Key design decisions
 
 1. **Split animation-rate semantics** — Ptolemaic uses model `animationRateProperty` (days/sec);
-   Configurations uses `TimeModel.animationRateProperty` (0–6×). Neither model uses `TimeModel.timeProperty`
+   Configurations uses its own `animationRateProperty` (0–6×). Neither model uses `TimeModel.timeProperty`
    for physics.
 2. **Imperative synodic schedule** — epoch angles shift event times within each cycle.
 3. **Flash-faithful Ptolemaic equant math** in `computeEpicycleCenter`.

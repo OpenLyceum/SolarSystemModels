@@ -202,7 +202,7 @@ export class ConfigurationsControlPanel extends SolarSystemModelsPanel {
     // Flash: "animation rate:" shares a row with its slider.
     const animRateRow = createCompactSliderRow(
       s.animationRateStringProperty,
-      model.timer.animationRateProperty,
+      model.animationRateProperty,
       new Range(ANIMATION_RATE_RANGE.min, ANIMATION_RATE_RANGE.max),
       { accessibleName: a11y.controls.animationRateStringProperty },
     );

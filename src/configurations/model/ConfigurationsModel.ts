@@ -3,7 +3,7 @@ import { BooleanProperty, DerivedProperty, EnumerationProperty, NumberProperty, 
 import { Range, Vector2 } from "scenerystack/dot";
 import type { TModel } from "scenerystack/joist";
 import { TimeModel } from "../../common/TimeModel.js";
-import { PAUSE_TIME_RANGE, SEMIMAJOR_AXIS_RANGE } from "../../SolarSystemModelsConstants.js";
+import { ANIMATION_RATE_RANGE, PAUSE_TIME_RANGE, SEMIMAJOR_AXIS_RANGE } from "../../SolarSystemModelsConstants.js";
 import type { PlanetPresetKey } from "./ConfigurationsPlanet.js";
 import { PLANET_PRESETS, PRESET_KEYS } from "./ConfigurationsPlanet.js";
 import { EventAction } from "./EventAction.js";
@@ -19,6 +19,9 @@ function mod2pi(x: number): number {
 export class ConfigurationsModel implements TModel {
   // ── Composed timing model ──────────────────────────────────────────────────
   public readonly timer: TimeModel;
+
+  /** Animation-rate slider value; scales how many orbit-years pass per wall-clock second. */
+  public readonly animationRateProperty: NumberProperty;
 
   // ── Orbital parameters ─────────────────────────────────────────────────────
   public readonly semimajorAxis1Property: NumberProperty;
@@ -94,7 +97,10 @@ export class ConfigurationsModel implements TModel {
   private countdownElapsed = -1; // -1 = idle
 
   public constructor() {
-    this.timer = new TimeModel(false);
+    this.timer = new TimeModel();
+    this.animationRateProperty = new NumberProperty(1, {
+      range: new Range(ANIMATION_RATE_RANGE.min, ANIMATION_RATE_RANGE.max),
+    });
 
     // default a1=1 (Earth), a2=2.4
     this.semimajorAxis1Property = new NumberProperty(1, {
@@ -685,7 +691,7 @@ export class ConfigurationsModel implements TModel {
     // Flash: animationRate = sliderVal * min(period1,period2) / TWO_PI (yr/sec).
     // The slider value IS the inner planet's angular speed in rad/sec (default 1).
     const minPeriod = Math.min(this.period1Property.value, this.period2Property.value);
-    const dtYears = (dt * this.timer.animationRateProperty.value * minPeriod) / TWO_PI;
+    const dtYears = (dt * this.animationRateProperty.value * minPeriod) / TWO_PI;
     const newTime = this.timeProperty.value + dtYears;
 
     if (newTime >= this.nextEventTime && this.eventActionProperty.value !== EventAction.RUN) {
@@ -706,6 +712,7 @@ export class ConfigurationsModel implements TModel {
 
   public reset(): void {
     this.timer.reset();
+    this.animationRateProperty.reset();
     this.slewActive = false;
     this.countdownElapsed = -1;
 

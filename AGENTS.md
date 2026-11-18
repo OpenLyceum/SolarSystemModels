@@ -19,7 +19,7 @@ Shared code uses the `SolarSystemModels` prefix; per-screen code uses `Ptolemaic
 | Models | `ptolemaic/model/PtolemaicModel.ts`, `PtolemaicPlanet.ts`, `configurations/model/ConfigurationsModel.ts`, `ConfigurationsPlanet.ts` |
 | Shared zodiac data | `src/common/ZodiacConstellationsData.ts`, `ZodiacStripBackground.ts` |
 | Shared UI | `src/common/SolarSystemModelsPanel.ts`, `SolarSystemModelsButtonOptions.ts`, `SolarSystemModelsControlOptions.ts` |
-| Animation | `src/common/TimeModel.ts` (Configurations uses `animationRateProperty`; Ptolemaic uses model-local rate) |
+| Animation | `src/common/TimeModel.ts` (play/pause only; each screen model owns its `animationRateProperty`) |
 | Colors / constants | `src/SolarSystemModelsColors.ts`, `src/SolarSystemModelsConstants.ts` |
 | Strings | `src/i18n/StringManager.ts` |
 | Preferences | `src/preferences/` (empty scaffold + query params) |
@@ -38,7 +38,7 @@ Two **independent** screen models — no shared root state.
 
 - Ptolemaic **superior** planets: deferent driven by planet anomaly, epicycle locked to Sun angle; **inferior** planets swap roles.
 - Sun moves at fixed rate ≈ 2π/365.25 rad/day on a circle of radius **2.25** deferent units.
-- **Split animation-rate semantics**: Ptolemaic uses `animationRateProperty` in **days/sec** (1–500); Configurations uses `TimeModel.animationRateProperty` as a **0–6×** multiplier. Neither model uses `TimeModel.timeProperty` for physics.
+- **Split animation-rate semantics**: Ptolemaic uses `animationRateProperty` in **days/sec** (1–500); Configurations uses its own `animationRateProperty` as a **0–6×** multiplier. Neither model uses `TimeModel.timeProperty` for physics.
 - Flash-faithful equant math lives in `computeEpicycleCenter` — preserve unless porting fidelity changes.
 
 ## Accessibility

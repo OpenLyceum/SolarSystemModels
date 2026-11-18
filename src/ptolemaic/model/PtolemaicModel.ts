@@ -89,7 +89,7 @@ export class PtolemaicModel implements TModel {
   private applyingPreset = false;
 
   public constructor() {
-    this.timer = new TimeModel(false);
+    this.timer = new TimeModel();
 
     this.animationRateProperty = new NumberProperty(PTOLEMAIC_DEFAULT_ANIMATION_RATE, {
       range: new Range(PTOLEMAIC_ANIMATION_RATE_RANGE.min, PTOLEMAIC_ANIMATION_RATE_RANGE.max),
