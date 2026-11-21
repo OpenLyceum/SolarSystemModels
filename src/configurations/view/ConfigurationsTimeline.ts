@@ -134,9 +134,33 @@ export class ConfigurationsTimeline extends Node {
     selectedEventText.visible = false;
     this.addChild(selectedEventText);
 
-    // Hotspot layer for clickable events
+    // Hotspot pool for clickable events: one per drawn mark (7 cycles × 4 events at most).
+    // Each hotspot remembers the cycle and event it was last drawn for, so a press slews to
+    // that mark rather than to whichever cycle the draw loop reached last.
     const hotspotLayer = new Node();
     this.addChild(hotspotLayer);
+    const hotspotPool: { node: Rectangle; cycle: number; event: number }[] = [];
+    for (let i = 0; i < 28; i++) {
+      const hotspot = {
+        node: new Rectangle(0, -6, W * 0.4, 12, {
+          fill: "rgba(0,0,0,0)",
+          cursor: "pointer",
+          tagName: "button",
+          accessibleName: a11y.controls.timelineEventStringProperty,
+          visible: false,
+        }),
+        cycle: 0,
+        event: 0,
+      };
+      hotspot.node.addInputListener(
+        new PressListener({
+          press: () => model.slewToEvent(hotspot.cycle, hotspot.event),
+        }),
+      );
+      hotspotPool.push(hotspot);
+      hotspotLayer.addChild(hotspot.node);
+    }
+    let hotspotIdx = 0;
 
     const drawAxisGrid = (time: number, scale: number): void => {
       const unitTimeMin = MIN_UNIT_PX / scale;
@@ -191,18 +215,14 @@ export class ConfigurationsTimeline extends Node {
         lbl.visible = true;
         labelIdx++;
       }
-      const hs = new Rectangle(0, y - 6, W * 0.4, 12, {
-        fill: "rgba(0,0,0,0)",
-        cursor: "pointer",
-        tagName: "button",
-        accessibleName: a11y.controls.timelineEventStringProperty,
-      });
-      hs.addInputListener(
-        new PressListener({
-          press: () => model.slewToEvent(cycle, e),
-        }),
-      );
-      hotspotLayer.addChild(hs);
+      const hotspot = hotspotPool[hotspotIdx];
+      if (hotspot !== undefined) {
+        hotspot.node.y = y;
+        hotspot.cycle = cycle;
+        hotspot.event = e;
+        hotspot.node.visible = true;
+        hotspotIdx++;
+      }
       if (
         model.lockedOnEventProperty.value &&
         model.lockedEventIndexProperty.value === e &&
@@ -226,7 +246,7 @@ export class ConfigurationsTimeline extends Node {
     ): void => {
       const shape = new Shape();
       labelIdx = 0;
-      hotspotLayer.children = [];
+      hotspotIdx = 0;
 
       for (let dc = -3; dc <= 3; dc++) {
         cycle = currentCycle + dc;
@@ -244,6 +264,12 @@ export class ConfigurationsTimeline extends Node {
         const lbl = labelPool[i];
         if (lbl !== undefined) {
           lbl.visible = false;
+        }
+      }
+      for (let i = hotspotIdx; i < hotspotPool.length; i++) {
+        const hotspot = hotspotPool[i];
+        if (hotspot !== undefined) {
+          hotspot.node.visible = false;
         }
       }
       eventLayer.shape = shape;
