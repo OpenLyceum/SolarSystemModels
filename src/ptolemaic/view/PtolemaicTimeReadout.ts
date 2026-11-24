@@ -1,4 +1,5 @@
 import { Multilink } from "scenerystack/axon";
+import { roundSymmetric } from "scenerystack/dot";
 import { Node, Text } from "scenerystack/scenery";
 import { PhetFont } from "scenerystack/scenery-phet";
 import { StringManager } from "../../i18n/StringManager.js";
@@ -22,7 +23,7 @@ export class PtolemaicTimeReadout extends Node {
       [model.ptolemaicTimeProperty, strings.yearsStringProperty, strings.daysStringProperty] as const,
       (days, yr, d) => {
         const years = Math.floor(days / DAYS_PER_YEAR);
-        const daysRem = Math.round(days % DAYS_PER_YEAR);
+        const daysRem = roundSymmetric(days % DAYS_PER_YEAR);
         readout.string = `${years} ${yr} ${daysRem} ${d}`;
       },
     );

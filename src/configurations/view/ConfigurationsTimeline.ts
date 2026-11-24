@@ -1,5 +1,5 @@
 import { Multilink } from "scenerystack/axon";
-import { toFixed } from "scenerystack/dot";
+import { roundSymmetric, toFixed } from "scenerystack/dot";
 import { Shape } from "scenerystack/kite";
 import { StringUtils } from "scenerystack/phetcommon";
 import { Node, Path, PressListener, Rectangle, RichDragListener, Text } from "scenerystack/scenery";
@@ -169,7 +169,7 @@ export class ConfigurationsTimeline extends Node {
       const halfRangeTicks = Math.ceil(H / 2 / tickSpacingPx) + 1;
       const axisShape = new Shape();
       let tickIdx = 0;
-      const baseTick = Math.round(time / unitTime) * unitTime;
+      const baseTick = roundSymmetric(time / unitTime) * unitTime;
 
       for (let tk = -halfRangeTicks; tk <= halfRangeTicks; tk++) {
         const tickTime = baseTick + tk * unitTime;
@@ -180,7 +180,7 @@ export class ConfigurationsTimeline extends Node {
         axisShape.moveTo(0, y).lineTo(W, y);
         const tickLabel = tickPool[tickIdx];
         if (tickLabel !== undefined) {
-          const lbl = decimals <= 0 ? String(Math.round(tickTime)) : toFixed(tickTime, decimals);
+          const lbl = decimals <= 0 ? String(roundSymmetric(tickTime)) : toFixed(tickTime, decimals);
           tickLabel.string = StringUtils.fillIn(s.yearsValuePatternStringProperty.value, { value: lbl });
           tickLabel.right = W - 2;
           tickLabel.centerY = y;
