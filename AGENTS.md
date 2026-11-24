@@ -71,3 +71,7 @@ Keyboard drags (all single-axis `RichDragListener`s, Shift = smaller step): Ptol
 - `ConfigurationsZodiacStrip` and `PtolemaicZodiacStrip` are separate view nodes; `MotionsOfTheSun/` cherry-picks constellation data and strip mapping from here.
 - **`npm run decompile`** extracts NAAP Flash ActionScript via JPEXS FFDec from `../Baseline/Astronomy/flash-animations` into gitignored `NAAP/decompiled/`.
 - After `npm run build`, the sim is installable offline via Workbox (`dist/manifest.webmanifest`).
+
+## Compliance carve-outs
+
+None.

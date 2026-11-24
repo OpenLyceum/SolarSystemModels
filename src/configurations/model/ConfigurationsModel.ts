@@ -1,6 +1,6 @@
 import type { TReadOnlyProperty } from "scenerystack/axon";
 import { BooleanProperty, DerivedProperty, EnumerationProperty, NumberProperty, Property } from "scenerystack/axon";
-import { Range, Vector2 } from "scenerystack/dot";
+import { Range, roundSymmetric, Vector2 } from "scenerystack/dot";
 import type { TModel } from "scenerystack/joist";
 import { TimeModel } from "../../common/TimeModel.js";
 import { ANIMATION_RATE_RANGE, PAUSE_TIME_RANGE, SEMIMAJOR_AXIS_RANGE } from "../../SolarSystemModelsConstants.js";
@@ -319,7 +319,7 @@ export class ConfigurationsModel implements TModel {
       this.lockedEventIndexProperty.value >= 0 &&
       this.lockedEventIndexProperty.value % 2 === 0
     ) {
-      const cycle = Math.round(
+      const cycle = roundSymmetric(
         (this.timeProperty.value - this.cycleOffsetProperty.value) / this.synodicPeriodProperty.value,
       );
       this.setTimeByCycleAndEventNumbers(cycle, this.lockedEventIndexProperty.value);
@@ -503,7 +503,7 @@ export class ConfigurationsModel implements TModel {
 
         const eventTimes = this.eventTimesListProperty.value;
         const snappedEvtTime = eventTimes[snappedEvent] as number;
-        const cycle = Math.round(
+        const cycle = roundSymmetric(
           (this.timeProperty.value - this.cycleOffsetProperty.value - snappedEvtTime) /
             this.synodicPeriodProperty.value,
         );

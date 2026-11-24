@@ -34,7 +34,7 @@ export class PtolemaicKeyPanel extends SolarSystemModelsPanel {
   public constructor() {
     const s = StringManager.getInstance().getPtolemaicStrings();
 
-    const tabs: KeyTab[] = [
+    const tabs: readonly [KeyTab, ...KeyTab[]] = [
       {
         swatchFill: SolarSystemModelsColors.earthColorProperty,
         labelProperty: s.keyEarthStringProperty,
@@ -104,8 +104,7 @@ export class PtolemaicKeyPanel extends SolarSystemModelsPanel {
     const tabRow = new HBox({ children: tabButtons, spacing: 2, align: "center" });
 
     // ── Info text field (updates with the selected tab) ──────────────────
-    // biome-ignore lint/style/noNonNullAssertion: tabs array is never empty (5 entries)
-    const infoText = new Text(tabs[0]!.infoProperty, {
+    const infoText = new Text(tabs[0].infoProperty, {
       font: INFO_FONT,
       fill: SolarSystemModelsColors.textColorProperty,
       maxWidth: PANEL_WIDTH - 20,
